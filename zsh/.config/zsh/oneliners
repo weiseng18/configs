@@ -1,0 +1,17 @@
+# ---- basic
+
+alias c="clear"
+alias l="ls -la"
+alias o="cd .."
+alias e="nvim"
+alias zr="exec $SHELL -l"                    # reload shell
+alias x="exit"
+alias t="tmux"
+
+# ---- helpers
+
+alias pg="pdfgrep -rin"                      # search PDFs
+alias cpwd="pwd | tr -d '\n' | pbcopy"       # copy pwd to clipboard
+
+# --- NUS
+alias mlb="/Applications/MATLAB_R2022b.app/bin/matlab -nojvm -nodesktop"

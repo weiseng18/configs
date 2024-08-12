@@ -1,0 +1,54 @@
+# open fzf-found pdf
+# pdf-launcher
+function pl() {
+    open "$(fd -e pdf -e pptx | fzf)"
+}
+
+# fzf and cd to directory in current dir
+# also supports left/right arrow keys to go up/down
+# one layer, and repeat in new folder
+# Source: https://github.com/nguyenvukhang/dots/blob/master/zsh/.config/zsh/jump
+
+function g() {
+    # if directory has no children directory, end
+    local check=$(command ls -Ap)
+    [[ ! $check = *"/"* ]] && return true
+
+    # main searching command
+    local target=$(fd --hidden -t d --exclude ".git" \
+        | fzf --expect "enter,esc,left,right")
+
+    target=${target#/*}
+
+    local res=()
+    while IFS= read -r line; do
+        res+=( "$line" )
+    done < <( echo $target )
+
+    local key=${res[1]}
+    local location=${res[2]}
+
+    case $key in
+        'esc') return true ;;
+        'left') cd ../ && g ;;
+        'right') cd $location && g ;;
+        'enter') cd $location ;;
+        *) return true ;;
+    esac
+    unset key
+}
+
+function p() {
+    local target=$(fd --base-directory ~/.password-store -e .gpg | fzf) # list all .gpg files
+    local strip=${target[1,-1]:r}  # strip first 2 chars, and extension
+    pass -c $strip
+}
+
+# Count total page count in a folder
+function countpages() {
+    find . -xdev -type f -name "*.pdf" -exec pdfinfo "{}" ";" | \
+        awk '/^Pages:/ {n += $2} END {print n}'
+}
+
+# enable navi
+eval "$(navi widget zsh)"

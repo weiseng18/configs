@@ -1,0 +1,45 @@
+# commit related
+alias ga="git number add"
+alias gaa="git add --all"
+alias gcm="git commit -m"
+alias gca="git commit --amend"
+alias gcan="git commit --amend --no-edit"
+
+# branch and fetch
+alias gp="git push"
+alias gco="git number checkout"
+alias gb="git branch"
+alias gr="git number reset"
+alias gf="git fetch"
+
+# push and set upstream as origin
+alias gpso="git push --set-upstream origin"
+
+# stash
+alias gsa="git stash --include-untracked"
+
+# commit based on folder name
+# - assumes that the first folder name is the commit header
+# - assumes that all staged files have the same first folder
+function gcf() {
+    local level=1
+
+    local gitRoot=$(git rev-parse --show-toplevel)
+    if [ $gitRoot = $REPOS/uni ]
+    then
+        level=2
+    fi
+
+    # 1. gives absolute path (from root dir of git repo)
+    # 2. of the first file
+    # 3. extract first dir
+    local header=$(git diff --name-only --staged | head --lines 1 | cut -f$level -d / )
+
+    git commit -m "$header: $1"
+}
+
+# diff/status
+alias gdi="git number diff"
+alias gds="git number diff --staged"
+alias gs="git number"
+alias gl="git log --oneline --all --graph"
