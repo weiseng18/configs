@@ -5,3 +5,7 @@ k('n', '<leader>gw', ':%s/\\s\\+$//g<CR>')
 
 -- yank to clipboard
 k('n', '<leader>ga', ':%y+<CR>')
+
+-- tab navigation
+k('n', '˙', 'gT')
+k('n', '¬', 'gt')
