@@ -4,7 +4,12 @@ require("config.lazy").setup {
     lazy = false,
     priority = 1000,
     opts = {},
-  }
+  },
+  {
+    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function() require('config.telescope') end,
+  },
 }
 
 require("config.set")
