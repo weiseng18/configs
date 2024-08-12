@@ -20,4 +20,19 @@ end
 
 M.base = base
 
+M.python = function()
+  lsp.pylsp.setup {
+    settings = {
+      pylsp = {
+        plugins = {
+          pycodestyle = {
+            ignore = {'W391'},
+            maxLineLength = 100
+          }
+        }
+      }
+    }
+  }
+end
+
 return M
