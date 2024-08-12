@@ -11,6 +11,12 @@ require("config.lazy").setup {
     config = function() require('config.telescope') end,
   },
   {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+  {
+    'neovim/nvim-lspconfig',
+    config = function()
+      local lsp = require('config.lsp')
+    end,
+  },
 }
 
 require("config.set")
