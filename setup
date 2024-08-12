@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-local stow_folders=(nvim)
+local stow_folders=(nvim kitty)
 
 for folder in ${stow_folders}; do
   stow --restow \
