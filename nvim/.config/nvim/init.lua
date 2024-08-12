@@ -10,6 +10,7 @@ require("config.lazy").setup {
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function() require('config.telescope') end,
   },
+  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 }
 
 require("config.set")
