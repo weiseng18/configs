@@ -14,5 +14,6 @@ require("config.lazy").setup {
 }
 
 require("config.set")
+require("config.remap")
 
 vim.cmd[[colorscheme tokyonight-moon]]
