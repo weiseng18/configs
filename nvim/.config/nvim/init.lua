@@ -3,7 +3,13 @@ require("config.lazy").setup {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    opts = {},
+    opts = {
+      transparent = true,
+      styles = {
+         sidebars = "transparent",
+         floats = "transparent",
+      },
+    },
   },
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.8',
@@ -24,4 +30,8 @@ require("config.set")
 require("config.remap")
 require("config.misc")
 
+-- setup colorscheme and transparent status line
 vim.cmd[[colorscheme tokyonight-moon]]
+vim.cmd('hi StatusLine guibg=NONE')
+-- noncurrent, e.g. when telescope is running
+vim.cmd('hi StatusLineNC guibg=NONE')
