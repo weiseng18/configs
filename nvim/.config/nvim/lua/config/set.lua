@@ -9,6 +9,5 @@ v.number = true -- set current line number as actual
 v.swapfile = false -- disables swap file
 v.backup = false -- disables backup
 v.mouse = nil
-v.colorcolumn = '81'
 
 vim.g.mapleader = ' ' -- set leader to <space>
