@@ -35,6 +35,10 @@ export NVM_DIR="$HOME/.nvm"
 # CTRL+R for fzf auto completion
 # CTRL+G for navi
 
+# ---------------------------------------------------------------------- locale
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 # -------------------------------------------------------------------- features
 source $ZSH_DOTS/git
 source $ZSH_DOTS/misc
