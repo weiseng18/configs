@@ -1,3 +1,14 @@
+# editor
+# if no args, open at pwd, otherwise call nvim as it is
+function e() {
+  if [ $# -eq 0 ]; then
+    nvim .
+  else
+    nvim "$@"
+  fi
+}
+
+
 # open fzf-found pdf
 # pdf-launcher
 function pl() {
