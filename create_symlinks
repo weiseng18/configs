@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+local folders=(kitty nvim tmux zsh)
+
+for f in ${folders}; do
+  local LOC=$HOME/.config/$f
+  # clear old symlink
+  rm $LOC
+  # set new symlink
+  ln -s $PWD/$f/.config/$f $LOC
+done
+
+rm $HOME/.zshrc
+ln -s $PWD/.zshrc $HOME/.zshrc
