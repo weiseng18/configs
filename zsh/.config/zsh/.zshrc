@@ -10,9 +10,6 @@ export EDITOR=nvim
 export LESSHISTFILE=-
 [ $EDITOR = "nvim" ] && export MANPAGER="nvim +Man!"
 
-# setup java
-export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
-
 # jdtls-launcher
 export PATH=$PATH:$HOME/.local/bin
 
