@@ -41,5 +41,13 @@ function gcf() {
 # diff/status
 alias gdi="git number diff"
 alias gds="git number diff --staged"
-alias gs="git number"
 alias gl="git log --oneline --all --graph"
+
+function gs() {
+  if [ "$#" -eq 0 ]; then
+    git number
+  else
+    # ghostscript
+    /bin/gs "$@"
+  fi
+}

@@ -31,9 +31,6 @@ export NVM_DIR="$HOME/.nvm"
 # fzf fuzzy autocompletion and keybindings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# to let git status use gs
-alias ghostscript="/usr/local/bin/gs"
-
 # Keybindings
 # CTRL+R for fzf auto completion
 # CTRL+G for navi
