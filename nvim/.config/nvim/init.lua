@@ -37,8 +37,15 @@ require("config.remap")
 require("config.misc")
 require("config.nvim-cmp")
 
--- setup colorscheme and transparent status line
+-- setup colorscheme
 vim.cmd[[colorscheme tokyonight-moon]]
+
+-- transparent status line
 vim.cmd('hi StatusLine guibg=NONE')
 -- noncurrent, e.g. when telescope is running
 vim.cmd('hi StatusLineNC guibg=NONE')
+
+-- set line numbers to white/gray for clarity (translucent background)
+vim.cmd("hi LineNr guifg=#FFFFFF")
+vim.cmd("hi LineNrAbove guifg=#888888")
+vim.cmd("hi LineNrBelow guifg=#888888")
