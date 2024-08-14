@@ -2,6 +2,22 @@ local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
 local keymap = vim.keymap.set
 
+-- find files, including hidden ones
+keymap('n', '<leader>ff', function()
+  builtin.find_files({
+    hidden = true,  -- Include hidden files
+  })
+end, {})
+
+-- live grep, including hidden files (assumption: underlying is ripgrep)
+keymap('n', '<leader>fw', function()
+  builtin.live_grep({
+    additional_args = function(opts)
+      return { "--hidden" }
+    end,
+  })
+end, {})
+
 -- telescope developers prefer working with buffers
 --
 -- this function replaces the tab if it is the only blank tab,
@@ -18,23 +34,6 @@ local function select_tab_hack(opts)
     return actions.select_tab(opts)
   end
 end
-
-
--- find files, including hidden ones
-keymap('n', '<leader>ff', function()
-  builtin.find_files({
-    hidden = true,  -- Include hidden files
-  })
-end, {})
-
--- live grep, including hidden files (assumption: underlying is ripgrep)
-keymap('n', '<leader>fw', function()
-  builtin.live_grep({
-    additional_args = function(opts)
-      return { "--hidden" }
-    end,
-  })
-end, {})
 
 require('telescope').setup {
   defaults = {
