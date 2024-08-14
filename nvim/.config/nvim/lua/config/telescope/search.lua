@@ -1,9 +1,9 @@
 local builtin = require("telescope.builtin")
 
-local M = {}
+local M = { file = {}, word = {} }
 
 -- find files, including hidden ones
-M.find_files = function()
+M.file.files = function()
   builtin.find_files({
     hidden = true,  -- Include hidden files
   })
@@ -17,7 +17,7 @@ local is_git_repo = function()
 end
 
 -- Find file in repo
-M.find_in_repo = function()
+M.file.repo = function()
   if not is_git_repo() then
     return
   end
@@ -28,7 +28,7 @@ M.find_in_repo = function()
 end
 
 -- live grep, including hidden files (assumption: underlying is ripgrep)
-M.live_grep = function()
+M.word.files = function()
   builtin.live_grep({
     additional_args = function(opts)
       return { "--hidden" }
@@ -37,7 +37,7 @@ M.live_grep = function()
 end
 
 -- live grep in repo
-M.live_grep_in_repo = function()
+M.word.repo = function()
   if not is_git_repo() then
     return
   end
