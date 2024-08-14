@@ -36,4 +36,18 @@ M.live_grep = function()
   })
 end
 
+-- live grep in repo
+M.live_grep_in_repo = function()
+  if not is_git_repo() then
+    return
+  end
+  builtin.live_grep({
+    cwd = vim.fn.systemlist("git rev-parse --show-toplevel")[1],
+    prompt_title = "Search in repo",
+    additional_args = function(opts)
+      return { "--hidden" }
+    end,
+  })
+end
+
 return M
