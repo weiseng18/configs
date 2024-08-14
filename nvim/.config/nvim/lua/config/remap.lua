@@ -9,3 +9,6 @@ k('n', '<leader>ga', ':%y+<CR>')
 -- tab navigation
 k('n', '˙', 'gT')
 k('n', '¬', 'gt')
+
+-- show lsp error in a floating box
+k('n', '<leader>er', ':lua vim.diagnostic.open_float()<CR>')
