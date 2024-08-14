@@ -22,6 +22,7 @@ require("config.lazy").setup {
     config = function()
       local lsp = require('config.lsp')
       lsp.python()
+      lsp.lua()
     end,
   },
   'hrsh7th/cmp-nvim-lsp',
