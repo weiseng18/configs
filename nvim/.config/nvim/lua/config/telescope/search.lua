@@ -9,6 +9,24 @@ M.find_files = function()
   })
 end
 
+--- Is cwd in git repo
+local is_git_repo = function()
+  local cmd = "git rev-parse --is-inside-work-tree"
+  local git_check = vim.fn.systemlist(cmd)[1]
+  return git_check == "true"
+end
+
+-- Find file in repo
+M.find_in_repo = function()
+  if not is_git_repo() then
+    return
+  end
+  builtin.git_files({
+    cwd = vim.fn.systemlist("git rev-parse --show-toplevel")[1],
+    prompt_title = "Search in repo",
+  })
+end
+
 -- live grep, including hidden files (assumption: underlying is ripgrep)
 M.live_grep = function()
   builtin.live_grep({

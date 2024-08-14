@@ -3,6 +3,7 @@ local search = require("config.telescope.search")
 local keymap = vim.keymap.set
 
 keymap('n', '<leader>ff', search.find_files)
+keymap('n', '<leader>fr', search.find_in_repo)
 keymap('n', '<leader>fw', search.live_grep)
 
 -- telescope developers prefer working with buffers
