@@ -24,11 +24,17 @@ require("config.lazy").setup {
       lsp.python()
     end,
   },
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-path',
+  'hrsh7th/cmp-cmdline',
+  'hrsh7th/nvim-cmp',
 }
 
 require("config.set")
 require("config.remap")
 require("config.misc")
+require("config.nvim-cmp")
 
 -- setup colorscheme and transparent status line
 vim.cmd[[colorscheme tokyonight-moon]]
