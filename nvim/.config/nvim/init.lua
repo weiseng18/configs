@@ -36,6 +36,10 @@ require("config.lazy").setup {
 	  dependencies = { "saadparwaiz1/cmp_luasnip" },
 	  config = function()
       require("luasnip.loaders.from_lua").load({ paths = "~/repos/configs/nvim/.config/nvim/lua/config/luasnip" })
+      require("luasnip").config.set_config({
+        enable_autosnippets = true,
+        update_events = 'TextChanged,TextChangedI',
+      })
 	  end
 	}
 }
