@@ -23,9 +23,7 @@ ls.add_snippets("plaintex", {
         \renewcommand{\ref}[1]{(\oldref{#1})}
 
         \begin{document}
-
-        <>
-
+          <>
         \end{document}
       ]],
       { i(1) }
