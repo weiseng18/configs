@@ -1,6 +1,11 @@
 local cmp = require("cmp")
 local ls = require("luasnip")
 
+local function in_snippet()
+  local current_buf = vim.api.nvim_get_current_buf()
+  return ls.session.current_nodes[current_buf] ~= nil
+end
+
 cmp.setup({
   window = {
     completion = cmp.config.window.bordered(),
@@ -13,6 +18,13 @@ cmp.setup({
         behavior = cmp.ConfirmBehavior.Insert,
         select = true
       }),
+    ['<Esc>'] = function(fallback)
+      if in_snippet() then
+        ls.unlink_current()
+        vim.cmd('stopinsert')
+      end
+      fallback()
+    end,
     ['<C-]>'] = function()
       if ls.expand_or_jumpable() then
         ls.expand_or_jump()
