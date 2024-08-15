@@ -41,7 +41,8 @@ require("config.lazy").setup {
         update_events = 'TextChanged,TextChangedI',
       })
 	  end
-	}
+	},
+  'lervag/vimtex',
 }
 
 require("config.set")
