@@ -5,6 +5,7 @@ local M = { file = {}, word = {} }
 -- find files, including hidden ones
 M.file.files = function()
   builtin.find_files({
+    cwd = ".",
     hidden = true,  -- Include hidden files
   })
 end

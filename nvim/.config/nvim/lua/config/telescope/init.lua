@@ -2,7 +2,7 @@ local actions = require("telescope.actions")
 local search = require("config.telescope.search")
 local keymap = vim.keymap.set
 
-keymap('n', '<leader>ff', search.file.repo)
+keymap('n', '<leader>ff', search.file.files)
 keymap('n', '<leader>fr', search.file.repo)
 keymap('n', '<leader>wf', search.word.files)
 keymap('n', '<leader>wr', search.word.repo)
