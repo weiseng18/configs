@@ -39,7 +39,17 @@ ls.add_snippets("tex", {
   ),
 
   s({trig="//", snippetType="autosnippet"},
-    fmta([[\\frac{<>}{<>}]], { i(1), i(2) }),
+    fmta([[\frac{<>}{<>}]], { i(1), i(2) }),
+    { condition = in_math }
+  ),
+
+  s({trig="abs", snippetType="autosnippet"},
+    fmta([[\lvert <> \rvert]], { i(1) }),
+    { condition = in_math }
+  ),
+
+  s({trig="abl", snippetType="autosnippet"},
+    fmta([[\left\lvert <> \right\rvert]], { i(1) }),
     { condition = in_math }
   ),
 })

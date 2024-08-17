@@ -12,6 +12,13 @@ ls.add_snippets("tex", {
     )
   ),
 
+  s("s2s",
+    fmta(
+      [[\subsection*{<>}]],
+      { i(1) }
+    )
+  ),
+
   s("bals",
     fmta(
       [[
@@ -31,6 +38,17 @@ ls.add_snippets("tex", {
         \end{equation}
       ]],
       { i(1), i(2) }
+    )
+  ),
+
+  s("ul",
+    fmta(
+      [[
+        \begin{itemize}
+          \item <>
+        \end{itemize}
+      ]],
+      { i(1) }
     )
   ),
 
