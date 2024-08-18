@@ -1,0 +1,8 @@
+% nus
+
+# (CS3241) OpenGL compile
+g++ -Wno-deprecated-declarations -framework OpenGL -framework GLUT <file-name>
+$file-name: ls *.cpp
+
+# (CS3241) Generate cmake compile options, for clangd in nvim lsp
+cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1

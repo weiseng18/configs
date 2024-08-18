@@ -1,0 +1,9 @@
+% screen_recording
+
+# Reduce screen recording size (transcode, from NUS E-Assessment SOP)
+ffmpeg -i <input-file> -r 1 -probesize 20M -threads 1 -vcodec libx264 -b:v 128k -s hd720 <output-file>
+
+$ input-file: ls
+
+# Record MacBook screen (without audio) at 6FPS 720p, while external monitor is disconnected
+ffmpeg -f avfoundation -i "1:" -r 6 -s hd720 <output-file>

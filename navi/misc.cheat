@@ -1,0 +1,9 @@
+% misc
+
+# Zip a folder
+zip -r <folder-name>.zip <folder-name>
+
+$folder-name: ls
+
+# Create PDF from JPGs
+convert *.jpg -quality 100 <pdf-name>.pdf
