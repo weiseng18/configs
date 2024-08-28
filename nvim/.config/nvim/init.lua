@@ -43,6 +43,7 @@ require("config.lazy").setup {
 	  end
 	},
   'lervag/vimtex',
+  'aca/marp.nvim',
 }
 
 require("config.set")
