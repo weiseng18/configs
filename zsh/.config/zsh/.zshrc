@@ -10,6 +10,9 @@ export EDITOR=nvim
 export LESSHISTFILE=-
 [ $EDITOR = "nvim" ] && export MANPAGER="nvim +Man!"
 
+# cs2103t
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+
 # jdtls-launcher
 export PATH=$PATH:$HOME/.local/bin
 
