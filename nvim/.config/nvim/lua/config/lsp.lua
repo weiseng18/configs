@@ -20,6 +20,10 @@ end
 
 M.base = base
 
+M.java  = function()
+  lsp.jdtls.setup{ cmd = { 'jdtls' } }
+end
+
 M.python = function()
   lsp.pylsp.setup {
     settings = {
