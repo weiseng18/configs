@@ -38,17 +38,5 @@ function g() {
     unset key
 }
 
-function p() {
-    local target=$(fd --base-directory ~/.password-store -e .gpg | fzf) # list all .gpg files
-    local strip=${target[1,-1]:r}  # strip first 2 chars, and extension
-    pass -c $strip
-}
-
-# Count total page count in a folder
-function countpages() {
-    find . -xdev -type f -name "*.pdf" -exec pdfinfo "{}" ";" | \
-        awk '/^Pages:/ {n += $2} END {print n}'
-}
-
 # enable navi
 eval "$(navi widget zsh)"

@@ -2,17 +2,11 @@
 
 typeset -A local nav=(
   [d]="$DOTS"
-  [s]="$REPOS/uni/Y4S1"
   [z]="$ZSH_DOTS"
   [r]="$REPOS"
   [t]="$DOTS/tmux/.config/tmux"
   [nv]="$NAVI_PATH"
-  [cs]="$REPOS/nus-cheatsheets"
-  [u]="$REPOS/uni"
   [n]="$DOTS/nvim/.config/nvim"
-  [b]="$REPOS/books"
-  [g]="$HOME/Documents/Games/GBA"
-  [p]="$HOME/print"
 )
 
 for k dir in ${(kv)nav}; do
