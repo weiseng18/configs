@@ -10,22 +10,6 @@ export EDITOR=nvim
 export LESSHISTFILE=-
 [ $EDITOR = "nvim" ] && export MANPAGER="nvim +Man!"
 
-# cs2103t
-source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# jdtls-launcher
-export PATH=$PATH:$HOME/.local/bin
-
-# setup matlab
-export PATH="/Applications/MATLAB_R2022b.app/bin/:$PATH"
-
-# LaTeX
-export MANPATH="/usr/local/texlive/2024/texmf-dist/doc/man:$MANPATH"
-export INFOPATH="/usr/local/texlive/2024/texmf-dist/doc/info:$INFOPATH"
-export PATH="/usr/local/texlive/2024/bin/universal-darwin:$PATH"
-
-export PATH="/usr/local/texlive/2024/texmf-dist/tex/latex/:$PATH"
-
 # ---------------------------------------------------------------- app specific
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
@@ -51,17 +35,8 @@ source $ZSH_DOTS/prompt
 
 # --------------------------------------------------------------- shell options
 
-setopt globdots # enable zsh completion to show hidden files and folders
+#setopt globdots # enable zsh completion to show hidden files and folders
 set -o ignoreeof # help with accidental control-D
 
 # enable zprof
-zmodload zsh/zprof
-
-# >>> juliaup initialize >>>
-
-# !! Contents within this block are managed by juliaup !!
-
-path=('/Users/kurumi/.juliaup/bin' $path)
-export PATH
-
-# <<< juliaup initialize <<<
+#zmodload zsh/zprof

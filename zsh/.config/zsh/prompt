@@ -1,17 +1,31 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 function prompt_git() {
   local branch=$(git branch --show-current 2> /dev/null)
-  if [ $branch ]; then
-    local remote=${${$(git config --get remote.origin.url)##*/}%*.git}
-    if [ $remote ]; then
-      echo "%F{241}(%F{246}${remote}%F{241}/${branch})"
+  if [ "$branch" ]; then
+    local remote_url=$(git config --get remote.origin.url 2> /dev/null)
+    if [ "$remote_url" ]; then
+      # Extract remote name: remove everything before last slash, then remove .git extension
+      local remote=${remote_url##*/}
+      remote=${remote%.git}
+      echo "\e[38;5;241m(\e[38;5;246m${remote}\e[38;5;241m/${branch})"
     else
-      echo "%F{241}(${branch})"
+      echo "\e[38;5;241m(${branch})"
     fi
   fi
 }
 
-setopt prompt_subst
-PROMPT=$'%F{blue}%~ $(prompt_git)%f
-%(?.%F{green}> %f.%F{red}> %f)'
+function set_prompt() {
+  local exit_code=$?
+  local git_info=$(prompt_git)
+  
+  if [ $exit_code -eq 0 ]; then
+    local prompt_symbol="\e[32m> \e[0m"
+  else
+    local prompt_symbol="\e[31m> \e[0m"
+  fi
+  
+  PS1="\e[34m\w ${git_info}\e[0m\n${prompt_symbol}"
+}
+
+PROMPT_COMMAND=set_prompt

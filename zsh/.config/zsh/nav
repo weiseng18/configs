@@ -1,22 +1,17 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
-typeset -A local nav=(
+declare -A nav=(
   [d]="$DOTS"
-  [s]="$REPOS/uni/Y4S1"
   [z]="$ZSH_DOTS"
   [r]="$REPOS"
   [t]="$DOTS/tmux/.config/tmux"
   [nv]="$NAVI_PATH"
-  [cs]="$REPOS/nus-cheatsheets"
-  [u]="$REPOS/uni"
   [n]="$DOTS/nvim/.config/nvim"
-  [b]="$REPOS/books"
-  [g]="$HOME/Documents/Games/GBA"
-  [p]="$HOME/print"
 )
 
-for k dir in ${(kv)nav}; do
-  [ ! -d $dir ] && echo "zsh nav: $dir doesn't exist" && continue
-  alias 2$k="cd $dir"
+for k in "${!nav[@]}"; do
+  dir="${nav[$k]}"
+  [ ! -d "$dir" ] && echo "bash nav: $dir doesn't exist" && continue
+  alias "2$k"="cd '$dir'"
 done
-unset nav k v
+unset nav k dir 
