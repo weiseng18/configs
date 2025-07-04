@@ -15,9 +15,17 @@ function prompt_git() {
   fi
 }
 
+function prompt_conda() {
+  if [ -n "$CONDA_DEFAULT_ENV" ]; then
+    local env_name=$(basename "$CONDA_DEFAULT_ENV")
+    echo "\e[38;5;208m(${env_name})\e[0m "
+  fi
+}
+
 function set_prompt() {
   local exit_code=$?
   local git_info=$(prompt_git)
+  local conda_info=$(prompt_conda)
   
   if [ $exit_code -eq 0 ]; then
     local prompt_symbol="\e[32m> \e[0m"
@@ -25,7 +33,8 @@ function set_prompt() {
     local prompt_symbol="\e[31m> \e[0m"
   fi
   
-  PS1="\e[34m\w ${git_info}\e[0m\n${prompt_symbol}"
+  #PS1="\e[34m\w ${git_info}\e[0m\n${prompt_symbol}"
+  PS1="${conda_info}\e[34m\w ${git_info}\e[0m\n${prompt_symbol}"
 }
 
 PROMPT_COMMAND=set_prompt
