@@ -8,7 +8,7 @@ declare -A nav=(
   [nv]="$NAVI_PATH"
   [n]="$DOTS/nvim/.config/nvim"
   [vs]="$REPOS/com.visier.vserver"
-  [vai]="$REPOS/com.visier.server.vee"
+  [ai]="$REPOS/com.visier.server.vee"
 )
 
 for k in "${!nav[@]}"; do
