@@ -17,3 +17,10 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "java",
   command = "setlocal shiftwidth=4 tabstop=4",
 })
+
+-- border
+vim.o.winborder = "rounded"
+
+-- fix EOL
+vim.o.eol = false
+vim.o.fixeol = false

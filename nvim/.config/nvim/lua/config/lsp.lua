@@ -7,9 +7,9 @@ local base = function(opts)
     local x = { buffer = bufnr, noremap = true }
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, x)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, x)
-    vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, x)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, x)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, x)
+    vim.keymap.set('n', 'grt', vim.lsp.buf.type_definition, x)
+    vim.keymap.set('n', 'grr', vim.lsp.buf.references, x)
+    vim.keymap.set('n', 'gri', vim.lsp.buf.implementation, x)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, x)
   end
   opts.capabilities = require('cmp_nvim_lsp').default_capabilities(
@@ -19,6 +19,10 @@ local base = function(opts)
 end
 
 M.base = base
+
+M.angular = function()
+  lsp.angularls.setup{ cmd = { 'ngserver' } }
+end
 
 M.java  = function()
   lsp.jdtls.setup{ cmd = { 'jdtls' } }
