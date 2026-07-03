@@ -1,9 +1,9 @@
-#!/bin/zsh
+#!/bin/bash
 
-local folders=(kitty nvim tmux zsh)
+folders=(kitty nvim tmux zsh)
 
 for f in ${folders}; do
-  local LOC=$HOME/.config/$f
+  LOC=$HOME/.config/$f
   # clear old symlink
   rm $LOC
   # set new symlink
