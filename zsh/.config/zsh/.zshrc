@@ -10,6 +10,9 @@ export EDITOR=nvim
 export LESSHISTFILE=-
 [ $EDITOR = "nvim" ] && export MANPAGER="nvim +Man!"
 
+# git-number
+export PATH="$(go env GOPATH)/bin:$PATH"
+
 # ---------------------------------------------------------------- app specific
 
 # fzf fuzzy autocompletion and keybindings
